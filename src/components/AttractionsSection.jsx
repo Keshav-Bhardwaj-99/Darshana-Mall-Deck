@@ -13,14 +13,14 @@ const AttractionsSection = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-[#050505] px-6 md:px-24 pt-32">
+    <div className="w-full h-full flex flex-col items-center justify-center bg-[#050505] px-6 md:px-24 pt-24 pb-8">
       <div className="max-w-7xl w-full">
         {/* Slide Header */}
         <motion.div
            initial={{ opacity: 0, y: 20 }}
            whileInView={{ opacity: 1, y: 0 }}
            transition={{ duration: 1 }}
-           className="mb-12"
+           className="mb-8"
         >
           <p className="text-[10px] uppercase tracking-[0.5em] text-luxury-gold font-bold mb-4">03 / Entertainment</p>
           <h2 className="text-4xl md:text-5xl font-light text-white uppercase tracking-tighter">
@@ -29,7 +29,7 @@ const AttractionsSection = () => {
         </motion.div>
 
         {/* Presentation Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[50vh] md:h-[60vh]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[50vh] md:h-[55vh]">
           {contentData.attractions.map((item, index) => (
             <motion.div
               key={index}
@@ -63,7 +63,7 @@ const AttractionsSection = () => {
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-12 flex items-center justify-between border-t border-white/10 pt-8"
+          className="mt-8 flex items-center justify-between border-t border-white/10 pt-6"
         >
           <p className="text-[10px] uppercase tracking-widest text-gray-500 max-w-md">
             Drawing global audiences that pure retail simply cannot match. A platform for brand immersion.

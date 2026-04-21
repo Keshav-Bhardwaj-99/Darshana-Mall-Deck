@@ -97,14 +97,14 @@ const EventsSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-luxury-dark px-6 md:px-24 pt-32">
+    <div className="w-full h-full flex flex-col items-center justify-center bg-luxury-dark px-6 md:px-24 pt-24 pb-8">
       <div className="max-w-7xl w-full">
         {/* Slide Header */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="mb-10 text-center"
+          className="mb-6 text-center"
         >
           <p className="text-luxury-gold uppercase tracking-[0.5em] text-[10px] font-bold mb-4">05 / Venues</p>
           <h2 className="text-4xl md:text-5xl font-light tracking-tighter text-white uppercase leading-none">
@@ -125,7 +125,7 @@ const EventsSection = () => {
         <motion.div
            initial={{ opacity: 0 }}
            whileInView={{ opacity: 1 }}
-           className="mt-12 flex justify-center"
+           className="mt-8 flex justify-center"
         >
            <button 
              onClick={() => setIsModalOpen(true)}

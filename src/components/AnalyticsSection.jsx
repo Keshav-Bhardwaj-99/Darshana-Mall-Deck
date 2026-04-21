@@ -6,14 +6,14 @@ const AnalyticsSection = () => {
   const { analytics } = contentData;
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-[#020202] px-6 md:px-24 pt-32">
+    <div className="w-full h-full flex flex-col items-center justify-center bg-[#020202] px-6 md:px-24 pt-24 pb-8">
       <div className="max-w-7xl w-full">
         {/* Slide Header */}
         <motion.div
            initial={{ opacity: 0, y: 10 }}
            whileInView={{ opacity: 1, y: 0 }}
            transition={{ duration: 1 }}
-           className="mb-16"
+           className="mb-10"
         >
           <div className="flex items-center gap-6 mb-4">
              <p className="text-luxury-gold uppercase tracking-[0.5em] text-[10px] font-bold">06 / Intelligence</p>
@@ -24,7 +24,7 @@ const AnalyticsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Metrics Grid */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -32,7 +32,7 @@ const AnalyticsSection = () => {
             transition={{ duration: 1 }}
             className="flex flex-col justify-between py-4"
           >
-            <p className="text-xl text-gray-400 font-light mb-12 max-w-md leading-relaxed">
+            <p className="text-xl text-gray-400 font-light mb-8 max-w-md leading-relaxed">
               {analytics.description}
             </p>
 

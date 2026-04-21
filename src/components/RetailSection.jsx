@@ -11,15 +11,15 @@ const RetailSection = () => {
       {/* Background abstract element for luxury feel */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/[0.03] to-transparent skew-x-12 translate-x-32 pointer-events-none"></div>
 
-      <div className="max-w-7xl w-full px-6 md:px-24 z-10 pt-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-7xl w-full px-6 md:px-24 z-10 pt-24 pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className="space-y-4 mb-10">
+            <div className="space-y-4 mb-6">
               <h4 className="text-luxury-gold uppercase tracking-[0.5em] text-[10px] font-bold">04 / Curation</h4>
               <h2 className="text-4xl md:text-6xl font-light text-white uppercase tracking-tighter leading-[0.9]">
                 Global <span className="text-luxury-gold italic">Excellence</span>.
@@ -49,7 +49,7 @@ const RetailSection = () => {
             
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="mt-12 px-10 py-4 bg-luxury-gold text-black uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-white transition-colors duration-500"
+              className="mt-8 px-10 py-4 bg-luxury-gold text-black uppercase tracking-[0.3em] text-[10px] font-bold hover:bg-white transition-colors duration-500"
             >
               Leasing Inquiries
             </button>
