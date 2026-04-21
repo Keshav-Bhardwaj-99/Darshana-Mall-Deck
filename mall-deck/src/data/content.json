@@ -1,0 +1,80 @@
+{
+  "mallName": "American Dream",
+  "location": "East Rutherford, New Jersey",
+  "tagline": "The Future of Retail and Entertainment",
+  "heroVideoUrl": "/assets/hero_video.mp4",
+  "about": {
+    "title": "A Destination Like No Other",
+    "description": "More than just a mall, American Dream is a revolutionary community of entertainment, luxury, and dining. Spanning over 3 million square feet, it redefines the retail experience.",
+    "stats": [
+      { "label": "Square Feet", "value": "3M+" },
+      { "label": "Annual Visitors", "value": "40M+" },
+      { "label": "Retail Brands", "value": "450+" },
+      { "label": "Attractions", "value": "15+" }
+    ]
+  },
+  "attractions": [
+    {
+      "name": "Nickelodeon Universe",
+      "description": "The largest indoor theme park in the Western Hemisphere.",
+      "fullDescription": "Experience the ultimate family adventure with over 25 rides and attractions featuring your favorite characters. From hair-raising tall coasters to kid-friendly rides, this is a global destination for high-energy entertainment.",
+      "stats": ["25+ High-Energy Rides", "Western Hemisphere's Largest", "Year-round Indoor Climate"],
+      "imageUrl": "https://images.unsplash.com/photo-1513885045260-6b3086b24c17?auto=format&fit=crop&q=80&w=1200&q=75"
+    },
+    {
+      "name": "DreamWorks Water Park",
+      "description": "North America's largest indoor water park, a tropical paradise year-round.",
+      "fullDescription": "A record-breaking indoor water park that stays a perfect 81° F all year. Featuring North America’s largest wave pool and the world’s tallest indoor body slide, it offers a tropical experience like no other.",
+      "stats": ["81° F Tropical Climate", "Largest Wave Pool in NA", "World's Tallest Indoor Slide"],
+      "imageUrl": "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&q=80&w=1200&q=75"
+    },
+    {
+      "name": "Big SNOW",
+      "description": "North America's only indoor real-snow ski and snowboard park.",
+      "fullDescription": "The first and only indoor real-snow ski resort in North America. Whether you are a beginner or an expert, Big SNOW provides a perfect alpine environment every single day of the year.",
+      "stats": ["Real Snow Year-Round", "5,500 Tons of Snow", "Multiple Skill Slopes"],
+      "imageUrl": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&q=80&w=1200&q=75"
+    }
+  ],
+  "retail": {
+    "title": "The Avenue",
+    "description": "A curated collection of the world's most sought-after luxury brands, set in an atmosphere of unparalleled elegance.",
+    "brands": ["Hermès", "Saint Laurent", "Gucci", "Tiffany & Co.", "Balenciaga"]
+  },
+  "events": {
+    "title": "A Global Platform",
+    "subtitle": "Concerts, Activations, & Corporate Events",
+    "description": "With state-of-the-art arenas and thousands of square feet of flexible exposition space, we host the world's biggest brands and artists.",
+    "venues": [
+      {
+        "name": "The Dream Stage",
+        "capacity": "5,000+",
+        "image": "/assets/dream_stage_ai.png",
+        "videoUrl": "/assets/stage_loop.mp4",
+        "techSpecs": ["L-Acoustics K2 Sound", "20 Ton Rigging Cap", "4K LED Backdrop"]
+      },
+      {
+        "name": "Luxury Atrium",
+        "capacity": "Brand Activations",
+        "image": "/assets/luxury_atrium_ai.png",
+        "videoUrl": "/assets/atrium_loop.mp4",
+        "techSpecs": ["Natural Daylight", "Intelligent Lighting", "360° Viewing Angle"]
+      }
+    ]
+  },
+  "analytics": {
+    "title": "Tenant Intelligence",
+    "description": "Harnessing real-time data to drive retail performance.",
+    "metrics": [
+      { "label": "Annual Visitors", "value": "40M+", "growth": "+12%" },
+      { "label": "Avg. Spend per Visit", "value": "$156", "growth": "+8.5%" },
+      { "label": "Market Catchment", "value": "20M+", "growth": "Radius 50mi" }
+    ],
+    "demographics": [
+      { "segment": "Millennials", "percentage": 42 },
+      { "segment": "Gen X", "percentage": 30 },
+      { "segment": "Gen Z", "percentage": 18 },
+      { "segment": "Others", "percentage": 10 }
+    ]
+  }
+}
