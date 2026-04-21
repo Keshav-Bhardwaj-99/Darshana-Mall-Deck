@@ -6,7 +6,7 @@ const AnalyticsSection = () => {
   const { analytics } = contentData;
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-[#020202] px-6 md:px-24">
+    <div className="w-full h-full flex flex-col items-center justify-center bg-[#020202] px-6 md:px-24 pt-32">
       <div className="max-w-7xl w-full">
         {/* Slide Header */}
         <motion.div

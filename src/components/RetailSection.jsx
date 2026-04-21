@@ -11,7 +11,7 @@ const RetailSection = () => {
       {/* Background abstract element for luxury feel */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/[0.03] to-transparent skew-x-12 translate-x-32 pointer-events-none"></div>
 
-      <div className="max-w-7xl w-full px-6 md:px-24 z-10">
+      <div className="max-w-7xl w-full px-6 md:px-24 z-10 pt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <motion.div

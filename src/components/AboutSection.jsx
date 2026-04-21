@@ -4,7 +4,7 @@ import contentData from '../data/content.json';
 
 const AboutSection = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-black px-6 md:px-24">
+    <div className="w-full h-full flex items-center justify-center bg-black px-6 md:px-24 pt-32">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
         
         {/* Animated Left Column */}
