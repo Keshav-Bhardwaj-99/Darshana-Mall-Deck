@@ -3,7 +3,7 @@
 > A world-class, browser-based, cinematic pitch deck for the American Dream mall. Built to replace traditional static presentations with a data-driven, video-first interactive experience.
 
 ## 🚀 Live Demo
-**[Vercel URL will appear here after deployment]**
+**[darshana-mall-deck.vercel.app](https://darshana-mall-deck.vercel.app/)**
 
 ---
 
