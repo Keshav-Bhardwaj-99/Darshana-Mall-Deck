@@ -1,42 +1,45 @@
 # Darshana | Interactive Digital Sales Experience
 
-> A specialized, slide-based **Interactive Digital Deck** (Digideck format) built for the American Dream mall. Unlike a traditional website, this platform is engineered for linear, cinematic storytelling with built-in presentation controllers.
+> A specialized, **10-Slide Interactive Digital Deck** (Digideck format) built for the American Dream mall. This platform is engineered for linear, cinematic storytelling with professional presentation controls.
 
 ## 🚀 Live Demo
 **[darshana-mall-deck.vercel.app](https://darshana-mall-deck.vercel.app/)**
 
 ---
 
-## ✨ Presentation Features
+## ✨ Presentation Architecture
 
-### 🎞️ Slide-Based Architecture (Digideck Style)
-- **Scroll Snapping:** The interface "snaps" exactly to the start of each section, ensuring every "Slide" is viewed in its intended cinematic frame.
-- **Deck Navigation:** A vertical dot-controller on the right allows for non-linear jumping between key presentation chapters.
-- **Slide Indicators:** A real-time slide counter (e.g., 03 / 07) keeps the presenter and audience synchronized.
+### 🎞️ 10-Slide Cinematic Journey (Digideck Style)
+1.  **Intro:** Immersive 4K video background.
+2.  **The Concept:** Architectural mission and core stats.
+3.  **Entertainment:** High-impact traffic drivers (Nickelodeon, DreamWorks).
+4.  **Luxury Curation:** The Avenue brand showcase.
+5.  **Global Venues:** 3D interactive stage and atrium visualizations.
+6.  **Sustainability & Tech:** ESG initiatives and AI energy grids.
+7.  **The Roadmap:** Vision 2030 and future expansion phases.
+8.  **Intelligence:** Data-driven demographics and performance metrics.
+9.  **Partner Trust:** Strategic brand testimonials and partner feedback.
+10. **The Contact:** Direct call-to-action for leasing and partnerships.
 
-### 🎭 Cinematic Immersion
-- **Delayed Video Mounting:** 4K background videos are mounted after the preloader to ensure a smooth reveal without frame drops.
-- **Interactive Lightboxes:** Deep-dive slides for attractions with integrated AI-generated architectural stats.
-- **Ambient Soundscape:** A toggleable luxury lounge track to set the mood for a professional sales pitch.
-
-### 📊 Intelligence Layer
-- **Live Data Visuals:** Animated demographics and tenant intelligence charts to back up the sales pitch with hard data.
-- **Interactive Map:** A floating map to navigate the 3M+ sq. ft. space instantly from any slide.
+### 🎮 Built-in Presentation Controls
+- **Scroll Snapping:** Viewport locks exactly to each slide for focused storytelling.
+- **Deck Navigation:** Vertical dot-menu for non-linear jumping across all 10 chapters.
+- **Real-time Indicators:** Dynamic slide counter (01/10) to stay synchronized.
 
 ---
 
 ## 🤖 AI Strategic Integration
-- **Concept & Branding:** The "Darshana" name, luxury identity, and custom iconography were developed through AI agents.
-- **Environment Assets:** High-resolution lifestyle and mall interior visuals were generated using AI prompting to maintain a consistent luxury aesthetic.
-- **Business Modeling:** AI assisted in creating the demographics and ROI-focused metrics shown in the *Tenant Intelligence* slide.
+- **Concept & Branding:** "Darshana" identity and custom iconography developed via AI.
+- **Cinematic Assets:** High-resolution architectural and lifestyle visuals generated using specialized AI prompting.
+- **Business Intelligence:** AI-modeled ROI projections and demographics data.
 
 ---
 
 ## 🛠️ Technical Stack
 - **Framework:** React 18 + Vite
-- **Styling:** Tailwind CSS v4 (Custom Luxury Theme)
-- **Animation Engine:** Framer Motion (Spring-based physics & scroll-aware reveals)
-- **State Management:** React Hooks (Scroll-position monitoring & Slide-tracking)
+- **Styling:** Tailwind CSS v4 (Luxury Dark Theme)
+- **Animation Engine:** Framer Motion (Scroll-aware reveals & spring physics)
+- **State Management:** React Hooks (Dynamic slide tracking)
 - **Icons:** Lucide React & React Icons
 
 ---
