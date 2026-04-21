@@ -62,9 +62,27 @@
       }
     ]
   },
+  "sustainability": {
+    "title": "Smart & Sustainable",
+    "description": "Leading the future of green retail through AI-optimized energy grids and sustainable luxury practices.",
+    "features": [
+      { "title": "Zero Waste", "desc": "Circular economy practices across all dining and retail partners." },
+      { "title": "AI Energy", "desc": "Proprietary grid system reducing 40% carbon footprint." },
+      { "title": "Green Atriums", "desc": "Integrated natural biotopes for guest wellbeing." }
+    ]
+  },
+  "roadmap": {
+    "title": "Vision 2030",
+    "phases": [
+      { "year": "2026", "event": "Global Digital Launch", "status": "Current" },
+      { "year": "2027", "event": "The Majestic Hotel Expansion", "status": "Planning" },
+      { "year": "2028", "event": "Zero-Emission Logistics Hub", "status": "Projected" },
+      { "year": "2030", "event": "Interactive Metaverse Integration", "status": "Vision" }
+    ]
+  },
   "analytics": {
     "title": "Tenant Intelligence",
-    "description": "Harnessing real-time data to drive retail performance.",
+    "description": "Harnessing real-time data to drive retail performance and outperform traditional markets.",
     "metrics": [
       { "label": "Annual Visitors", "value": "40M+", "growth": "+12%" },
       { "label": "Avg. Spend per Visit", "value": "$156", "growth": "+8.5%" },
@@ -76,5 +94,17 @@
       { "segment": "Gen Z", "percentage": 18 },
       { "segment": "Others", "percentage": 10 }
     ]
-  }
+  },
+  "testimonials": [
+    {
+      "partner": "Hermès Partner Group",
+      "quote": "Darshana represents the pinnacle of luxury retail. The synergy between entertainment and commerce is unmatched.",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+    },
+    {
+      "partner": "Nickelodeon Lead",
+      "quote": "The traffic driven by the digital integration here has exceeded all our regional projections.",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+    }
+  ]
 }

@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Navbar = ({ activeSlide }) => {
+const Navbar = ({ activeSlide, totalSlides = 7 }) => {
   const slideNumber = (activeSlide + 1).toString().padStart(2, '0');
+  const totalSlidesFormatted = totalSlides.toString().padStart(2, '0');
 
   return (
     <nav className="fixed top-0 left-0 w-full z-[110] px-8 py-8 flex justify-between items-center bg-gradient-to-b from-black/50 to-transparent pointer-events-none">
@@ -31,7 +32,7 @@ const Navbar = ({ activeSlide }) => {
             <span className="text-2xl font-light text-white tracking-widest leading-none">
               {slideNumber}
             </span>
-            <span className="text-xs text-white/30">/ 07</span>
+            <span className="text-xs text-white/30">/ {totalSlidesFormatted}</span>
           </div>
         </div>
       </motion.div>

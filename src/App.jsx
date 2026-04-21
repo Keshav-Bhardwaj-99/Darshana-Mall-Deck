@@ -5,7 +5,10 @@ import AboutSection from './components/AboutSection';
 import AttractionsSection from './components/AttractionsSection';
 import RetailSection from './components/RetailSection';
 import EventsSection from './components/EventsSection';
+import SustainabilitySection from './components/SustainabilitySection';
+import RoadmapSection from './components/RoadmapSection';
 import AnalyticsSection from './components/AnalyticsSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import InteractiveMap from './components/InteractiveMap';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
@@ -24,7 +27,10 @@ function App() {
     { id: 'attractions', label: 'Attractions' },
     { id: 'retail', label: 'Brands' },
     { id: 'events', label: 'Venues' },
-    { id: 'analytics', label: 'Analytics' },
+    { id: 'sustainability', label: 'Impact' },
+    { id: 'roadmap', label: 'Vision' },
+    { id: 'analytics', label: 'Intelligence' },
+    { id: 'testimonials', label: 'Trust' },
     { id: 'footer', label: 'Contact' }
   ];
 
@@ -32,7 +38,7 @@ function App() {
     const scrollPos = e.currentTarget.scrollTop;
     const height = window.innerHeight;
     const index = Math.round(scrollPos / height);
-    if (index !== activeSlide) setActiveSlide(index);
+    if (index !== activeSlide && index < slides.length) setActiveSlide(index);
   };
 
   useEffect(() => {
@@ -56,7 +62,7 @@ function App() {
             onScroll={handleScroll}
           >
             <CustomCursor />
-            <Navbar activeSlide={activeSlide} />
+            <Navbar activeSlide={activeSlide} totalSlides={slides.length} />
             <DeckNavigation slides={slides} activeSlide={activeSlide} />
             
             <section id="hero" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
@@ -78,9 +84,21 @@ function App() {
             <section id="events" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
               <EventsSection />
             </section>
+
+            <section id="sustainability" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <SustainabilitySection />
+            </section>
+
+            <section id="roadmap" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <RoadmapSection />
+            </section>
             
             <section id="analytics" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
               <AnalyticsSection />
+            </section>
+
+            <section id="testimonials" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <TestimonialsSection />
             </section>
             
             <section id="footer" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden bg-[#050505]">
