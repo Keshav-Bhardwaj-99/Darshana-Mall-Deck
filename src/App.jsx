@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navbar from './components/Navbar';
 import HeroVideo from './components/HeroVideo';
 import AboutSection from './components/AboutSection';
@@ -20,6 +20,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSlide, setActiveSlide] = useState(0);
+  const containerRef = useRef(null);
 
   const slides = [
     { id: 'hero', label: 'Intro' },
@@ -42,6 +43,26 @@ function App() {
   };
 
   useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (isLoading) return;
+      
+      const height = window.innerHeight;
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        e.preventDefault();
+        const nextSlide = Math.min(activeSlide + 1, slides.length - 1);
+        containerRef.current?.scrollTo({ top: nextSlide * height, behavior: 'smooth' });
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        const prevSlide = Math.max(activeSlide - 1, 0);
+        containerRef.current?.scrollTo({ top: prevSlide * height, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeSlide, isLoading, slides.length]);
+
+  useEffect(() => {
     if (!isLoading) {
       window.history.scrollRestoration = 'manual';
     }
@@ -55,6 +76,7 @@ function App() {
         ) : (
           <motion.div
             key="main-deck"
+            ref={containerRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
