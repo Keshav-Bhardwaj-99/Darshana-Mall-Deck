@@ -1,79 +1,94 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaTwitter, FaFacebook, FaYoutube } from 'react-icons/fa';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, Phone, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#050505] text-white pt-24 pb-12 px-6 md:px-12 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+    <div className="w-full h-full flex items-center justify-center bg-[#050505] px-6 md:px-24 relative overflow-hidden">
+      {/* Decorative Branding in Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.02]">
+        <h2 className="text-[20vw] font-black uppercase tracking-tighter">Darshana</h2>
+      </div>
+
+      <div className="max-w-7xl w-full z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           
-          {/* Brand Column */}
-          <div className="col-span-1 md:col-span-1">
-            <h2 className="text-2xl font-bold tracking-[0.3em] text-luxury-gold uppercase mb-6">
-              Darshana
-            </h2>
-            <p className="text-gray-500 font-light text-sm leading-relaxed mb-8">
-              Redefining the global standard for retail, entertainment, and luxury experiences in the heart of Northern New Jersey.
-            </p>
-            <div className="flex gap-5 text-gray-400">
-              <a href="#" className="hover:text-luxury-gold transition-colors"><FaInstagram size={20} /></a>
-              <a href="#" className="hover:text-luxury-gold transition-colors"><FaTwitter size={20} /></a>
-              <a href="#" className="hover:text-luxury-gold transition-colors"><FaFacebook size={20} /></a>
-              <a href="#" className="hover:text-luxury-gold transition-colors"><FaYoutube size={20} /></a>
+          <motion.div
+             initial={{ opacity: 0, x: -30 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             transition={{ duration: 1 }}
+             className="space-y-12"
+          >
+            <div className="space-y-4">
+              <h2 className="text-[10px] uppercase tracking-[0.5em] text-luxury-gold font-bold">07 / Contact</h2>
+              <h3 className="text-4xl md:text-7xl font-light text-white uppercase tracking-tighter leading-[0.9]">
+                Let's Build the <span className="text-luxury-gold italic">Impossible</span>.
+              </h3>
             </div>
-          </div>
 
-          {/* Quick Links */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-white mb-4">Discover</h4>
-            <a href="#about" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">About the Mall</a>
-            <a href="#attractions" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Major Attractions</a>
-            <a href="#retail" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Luxury Brands</a>
-            <a href="#events" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Events & Venues</a>
-          </div>
+            <div className="space-y-8">
+              <div className="flex gap-6 items-start group">
+                <MapPin className="text-luxury-gold" size={24} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Location</p>
+                  <p className="text-lg text-white font-light transition-all group-hover:text-luxury-gold">1 American Dream Way, NJ 07073</p>
+                </div>
+              </div>
+              
+              <div className="flex gap-6 items-start group">
+                <Mail className="text-luxury-gold" size={24} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Inquiries</p>
+                  <p className="text-lg text-white font-light transition-all group-hover:text-luxury-gold">leasing@darshana.com</p>
+                </div>
+              </div>
 
-          {/* Business Links */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-white mb-4">Partnership</h4>
-            <a href="#retail" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Retail Leasing</a>
-            <a href="#events" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Venue Booking</a>
-            <a href="#analytics" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Tenant Analytics</a>
-            <a href="#" className="text-gray-500 hover:text-luxury-gold text-sm transition-colors font-light">Investor Relations</a>
-          </div>
-
-          {/* Contact Column */}
-          <div className="flex flex-col gap-6">
-            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-white mb-4">Visit Us</h4>
-            <div className="flex gap-3 text-gray-500 text-sm font-light">
-              <MapPin size={18} className="text-luxury-gold shrink-0" />
-              <span>1 American Dream Way,<br />East Rutherford, NJ 07073</span>
+              <div className="flex gap-6 items-start group">
+                <Phone className="text-luxury-gold" size={24} />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Direct Line</p>
+                  <p className="text-lg text-white font-light transition-all group-hover:text-luxury-gold">+1 (833) 263-7326</p>
+                </div>
+              </div>
             </div>
-            <div className="flex gap-3 text-gray-500 text-sm font-light">
-              <Phone size={18} className="text-luxury-gold shrink-0" />
-              <span>+1 (833) 263-7326</span>
-            </div>
-            <div className="flex gap-3 text-gray-500 text-sm font-light">
-              <Mail size={18} className="text-luxury-gold shrink-0" />
-              <span>leasing@darshana.com</span>
-            </div>
-          </div>
+          </motion.div>
 
-        </div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="flex flex-col items-center md:items-end justify-center space-y-16"
+          >
+            <div className="flex flex-col items-center md:items-end gap-6 w-full">
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gray-500 font-bold">Partnerships</p>
+              <a href="mailto:leasing@darshana.com" className="w-full md:w-auto px-12 py-6 bg-white text-black text-[12px] uppercase tracking-[0.4em] font-black flex items-center justify-center gap-4 hover:bg-luxury-gold transition-all duration-500 group">
+                Apply for Leasing <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </a>
+            </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] uppercase tracking-widest text-gray-600">
-            © 2026 DARSHANA MALLS. ALL RIGHTS RESERVED.
-          </p>
-          <div className="flex gap-8 text-[10px] uppercase tracking-widest text-gray-600">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
-          </div>
+            <div className="flex gap-10 text-gray-400">
+               {[FaInstagram, FaTwitter, FaFacebook, FaYoutube].map((Icon, i) => (
+                 <a key={i} href="#" className="hover:text-luxury-gold transition-colors duration-300">
+                   <Icon size={24} />
+                 </a>
+               ))}
+            </div>
+
+            <div className="pt-20 border-t border-white/5 w-full flex flex-col items-center md:items-end gap-4">
+               <p className="text-[10px] uppercase tracking-[0.3em] text-gray-700 font-bold">
+                 © 2026 DARSHANA MALLS. ALL RIGHTS RESERVED.
+               </p>
+               <div className="flex gap-6 text-[8px] uppercase tracking-[0.2em] text-gray-800">
+                 <a href="#" className="hover:text-white transition-colors">Privacy</a>
+                 <a href="#" className="hover:text-white transition-colors">Terms</a>
+                 <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+               </div>
+            </div>
+          </motion.div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

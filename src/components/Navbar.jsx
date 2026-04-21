@@ -1,57 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-// Navbar component provides non-linear navigation requested in the assignment
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  // Change nav background when scrolled
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Attractions', href: '#attractions' },
-    { name: 'Retail', href: '#retail' },
-    { name: 'Events', href: '#events' },
-  ];
+const Navbar = ({ activeSlide }) => {
+  const slideNumber = (activeSlide + 1).toString().padStart(2, '0');
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 1, ease: 'easeOut' }}
-      className={`fixed top-0 w-full z-50 transition-colors duration-500 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#" className="text-xl tracking-widest uppercase font-bold text-luxury-gold drop-shadow-sm">
+    <nav className="fixed top-0 left-0 w-full z-[110] px-8 py-8 flex justify-between items-center bg-gradient-to-b from-black/50 to-transparent pointer-events-none">
+      {/* Brand */}
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="pointer-events-auto"
+      >
+        <span className="text-2xl font-bold tracking-[0.3em] text-white uppercase">
           Darshana
-        </a>
+        </span>
+      </motion.div>
 
-        <div className="hidden md:flex gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-xs uppercase tracking-widest text-gray-300 hover:text-luxury-gold transition-colors duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
+      {/* Slide Indicator */}
+      <motion.div 
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="flex items-center gap-6 pointer-events-auto"
+      >
+        <div className="flex flex-col items-end">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-luxury-gold font-bold mb-1">
+            Slide
+          </span>
+          <div className="flex items-baseline gap-1">
+            <span className="text-2xl font-light text-white tracking-widest leading-none">
+              {slideNumber}
+            </span>
+            <span className="text-xs text-white/30">/ 07</span>
+          </div>
         </div>
-        
-        <button className="md:hidden text-white uppercase text-xs tracking-widest">
-          Menu
-        </button>
-      </div>
-    </motion.nav>
+      </motion.div>
+    </nav>
   );
 };
 

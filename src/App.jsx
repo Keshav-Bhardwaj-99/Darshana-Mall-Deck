@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroVideo from './components/HeroVideo';
 import AboutSection from './components/AboutSection';
@@ -12,42 +11,82 @@ import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import Preloader from './components/Preloader';
 import AudioAmbience from './components/AudioAmbience';
+import DeckNavigation from './components/DeckNavigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// This is the main App component that handles rendering the sections.
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  // Ensure the page always starts at the top on refresh
+  const slides = [
+    { id: 'hero', label: 'Intro' },
+    { id: 'about', label: 'Mission' },
+    { id: 'attractions', label: 'Attractions' },
+    { id: 'retail', label: 'Brands' },
+    { id: 'events', label: 'Venues' },
+    { id: 'analytics', label: 'Analytics' },
+    { id: 'footer', label: 'Contact' }
+  ];
+
+  const handleScroll = (e) => {
+    const scrollPos = e.currentTarget.scrollTop;
+    const height = window.innerHeight;
+    const index = Math.round(scrollPos / height);
+    if (index !== activeSlide) setActiveSlide(index);
+  };
+
   useEffect(() => {
     if (!isLoading) {
       window.history.scrollRestoration = 'manual';
-      window.scrollTo(0, 0);
     }
   }, [isLoading]);
 
   return (
-    <div className="w-full min-h-screen bg-luxury-dark text-white font-sans overflow-x-hidden">
+    <div className="w-full h-screen bg-luxury-dark text-white font-sans overflow-hidden">
       <AnimatePresence mode="wait">
         {isLoading ? (
           <Preloader key="loader" onLoadComplete={() => setIsLoading(false)} />
         ) : (
           <motion.div
-            key="main-content"
+            key="main-deck"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
+            className="w-full h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth"
+            onScroll={handleScroll}
           >
             <CustomCursor />
-            <Navbar />
-            <div id="hero"><HeroVideo /></div>
-            <div id="about"><AboutSection /></div>
-            <div id="attractions"><AttractionsSection /></div>
-            <div id="retail"><RetailSection /></div>
-            <div id="events"><EventsSection /></div>
-            <div id="analytics"><AnalyticsSection /></div>
+            <Navbar activeSlide={activeSlide} />
+            <DeckNavigation slides={slides} activeSlide={activeSlide} />
             
-            <Footer />
+            <section id="hero" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <HeroVideo />
+            </section>
+            
+            <section id="about" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <AboutSection />
+            </section>
+            
+            <section id="attractions" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <AttractionsSection />
+            </section>
+            
+            <section id="retail" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <RetailSection />
+            </section>
+            
+            <section id="events" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <EventsSection />
+            </section>
+            
+            <section id="analytics" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden">
+              <AnalyticsSection />
+            </section>
+            
+            <section id="footer" className="w-full h-screen snap-start flex-shrink-0 relative overflow-hidden bg-[#050505]">
+              <Footer />
+            </section>
+            
             <AudioAmbience />
             <InteractiveMap />
           </motion.div>

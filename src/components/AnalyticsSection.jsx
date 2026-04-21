@@ -1,44 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import contentData from '../data/content.json';
-import { BarChart3, TrendingUp, Users } from 'lucide-react';
 
 const AnalyticsSection = () => {
   const { analytics } = contentData;
 
   return (
-    <section id="analytics" className="w-full py-32 bg-[#020202] text-white px-4 md:px-10 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-luxury-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+    <div className="w-full h-full flex flex-col items-center justify-center bg-[#020202] px-6 md:px-24">
+      <div className="max-w-7xl w-full">
+        {/* Slide Header */}
+        <motion.div
+           initial={{ opacity: 0, y: 10 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           transition={{ duration: 1 }}
+           className="mb-16"
+        >
+          <div className="flex items-center gap-6 mb-4">
+             <p className="text-luxury-gold uppercase tracking-[0.5em] text-[10px] font-bold">06 / Intelligence</p>
+             <div className="h-[1px] flex-1 bg-white/10"></div>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-light text-white uppercase tracking-tighter leading-none">
+            Data-Driven <span className="text-luxury-gold italic">Success</span>.
+          </h2>
+        </motion.div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          
-          {/* Text Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
+          {/* Metrics Grid */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
             transition={{ duration: 1 }}
+            className="flex flex-col justify-between py-4"
           >
-            <h4 className="text-luxury-gold uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-              <BarChart3 size={16} /> Data-Driven Decisions
-            </h4>
-            <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
-              {analytics.title}
-            </h2>
-            <p className="text-lg text-gray-400 font-light mb-12 max-w-lg">
+            <p className="text-xl text-gray-400 font-light mb-12 max-w-md leading-relaxed">
               {analytics.description}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {analytics.metrics.map((metric, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-sm">
-                  <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">{metric.label}</p>
-                  <h3 className="text-3xl font-light text-white mb-1">{metric.value}</h3>
-                  <span className="text-emerald-400 text-xs font-medium flex items-center gap-1">
-                    <TrendingUp size={12} /> {metric.growth}
-                  </span>
+                <div key={i} className="p-8 border border-white/5 bg-white/[0.02]">
+                  <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-4">{metric.label}</p>
+                  <div className="flex items-baseline gap-2">
+                    <h3 className="text-4xl font-light text-white leading-none">{metric.value}</h3>
+                    <span className="text-[10px] text-emerald-400 font-bold">{metric.growth}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -48,30 +53,29 @@ const AnalyticsSection = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="bg-[#050505] border border-white/10 p-8 md:p-12 rounded-sm shadow-2xl relative"
+            className="bg-[#050505] border border-white/5 p-10 md:p-14 relative"
           >
-            <div className="flex justify-between items-center mb-10">
-              <h3 className="text-sm uppercase tracking-[0.2em] font-medium text-gray-400">Demographic Insights</h3>
-              <div className="flex gap-2">
-                <div className="w-2 h-2 rounded-full bg-luxury-gold"></div>
-                <div className="w-2 h-2 rounded-full bg-white/20"></div>
+            <div className="flex justify-between items-center mb-12">
+              <h3 className="text-[10px] uppercase tracking-[0.4em] font-bold text-gray-500">Consumer Segments</h3>
+              <div className="flex gap-1.5 indicator-dots">
+                <div className="w-1.5 h-1.5 rounded-full bg-luxury-gold"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
               </div>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-10">
               {analytics.demographics.map((item, i) => (
-                <div key={i} className="space-y-3">
-                  <div className="flex justify-between text-xs tracking-widest uppercase text-gray-500">
+                <div key={i} className="space-y-4">
+                  <div className="flex justify-between text-[10px] tracking-[0.3em] uppercase text-gray-500 font-bold">
                     <span>{item.segment}</span>
-                    <span>{item.percentage}%</span>
+                    <span className="text-white">{item.percentage}%</span>
                   </div>
                   <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${item.percentage}%` }}
-                      viewport={{ once: true }}
                       transition={{ duration: 1.5, delay: i * 0.1, ease: "circOut" }}
                       className="h-full bg-luxury-gold"
                     ></motion.div>
@@ -79,17 +83,10 @@ const AnalyticsSection = () => {
                 </div>
               ))}
             </div>
-
-            {/* Bottom Insight */}
-            <div className="mt-12 pt-8 border-t border-white/5 flex items-center gap-4 text-gray-500 italic font-light text-sm">
-              <Users size={18} className="text-luxury-gold" />
-              "Reach the highest-spending demographic in the tri-state area."
-            </div>
           </motion.div>
-
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
