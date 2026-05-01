@@ -1,95 +1,145 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
+const cities = [
+  { x: 28, y: 32, label: "NEW YORK", color: "#D4AF37" },
+  { x: 46, y: 24, label: "LONDON", color: "#D4AF37" },
+  { x: 58, y: 35, label: "DUBAI", color: "#D4AF37" },
+  { x: 72, y: 38, label: "TOKYO", color: "#D4AF37" },
+  { x: 20, y: 58, label: "SAO PAULO", color: "#D4AF37" },
+  { x: 65, y: 55, label: "SINGAPORE", color: "#D4AF37" },
+  { x: 38, y: 20, label: "PARIS", color: "#D4AF37" },
+  { x: 76, y: 28, label: "SHANGHAI", color: "#D4AF37" },
+];
+
 const GlobalFootfallGlobe = ({ setCurrentView }) => {
+  const gRef = useRef(null);
+  const angleRef = useRef(0);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    const rotate = () => {
+      angleRef.current += 0.05;
+      if (gRef.current) {
+        gRef.current.setAttribute('transform', `rotate(${angleRef.current}, 120, 120)`);
+      }
+      rafRef.current = requestAnimationFrame(rotate);
+    };
+    rafRef.current = requestAnimationFrame(rotate);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
+
   return (
-    <div className="w-full h-screen bg-black flex flex-col items-center justify-center relative overflow-hidden pt-24 pb-12">
-      {/* Background Tech Grid */}
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#4f4f4f_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f_1px,transparent_1px)] bg-[size:50px_50px]"></div>
-
-      <div className="relative z-10 text-center mb-12">
-        <h2 className="text-4xl md:text-6xl font-light text-white uppercase tracking-tighter">
-          Global <span className="text-luxury-gold italic">Reach</span>.
+    <div
+      style={{
+        width: '100%',
+        height: '100vh',
+        background: '#000',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        overflow: 'hidden',
+        paddingTop: '72px',
+        paddingBottom: '48px',
+        boxSizing: 'border-box',
+        position: 'relative',
+      }}
+    >
+      {/* HEADER */}
+      <div style={{ textAlign: 'center', marginBottom: '16px', flexShrink: 0 }}>
+        <h2 style={{ fontSize: '2rem', fontWeight: 300, color: '#fff', letterSpacing: '-0.03em', textTransform: 'uppercase', margin: 0 }}>
+          Global <span style={{ color: '#D4AF37', fontStyle: 'italic' }}>Reach</span>.
         </h2>
-        <p className="text-gray-500 text-xs uppercase tracking-[0.5em] mt-4 font-bold">Predictive Analytics & World-Wide Sentiment</p>
+        <p style={{ fontSize: '9px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#555', marginTop: '6px' }}>
+          Predictive Analytics & World-Wide Sentiment
+        </p>
       </div>
 
-      <div className="relative w-full max-w-4xl h-[50vh] flex items-center justify-center">
-        {/* Animated Globe (Tech-Style SVG) */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className="relative w-[500px] h-[500px]"
-        >
-          {/* Main Globe Circle */}
-          <div className="absolute inset-0 rounded-full border border-luxury-gold/30 shadow-[0_0_80px_rgba(212,175,55,0.15)] bg-gradient-to-br from-luxury-gold/5 to-transparent"></div>
-          
-          {/* Inner Pulsing Core */}
-          <motion.div 
-            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute inset-10 rounded-full bg-luxury-gold"
-          />
+      {/* GLOBE SVG — 240px × 240px */}
+      <div style={{ position: 'relative', width: 240, height: 240, flexShrink: 0 }}>
+        <svg width="240" height="240" viewBox="0 0 240 240" style={{ position: 'absolute', top: 0, left: 0 }}>
+          {/* Outer circle */}
+          <circle cx="120" cy="120" r="110" stroke="#D4AF37" strokeWidth="0.6" fill="rgba(212,175,55,0.04)" />
 
-          {/* Latitude/Longitude Lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 100 100">
-            <ellipse cx="50" cy="50" rx="45" ry="15" stroke="#D4AF37" strokeWidth="0.2" fill="none" />
-            <ellipse cx="50" cy="50" rx="15" ry="45" stroke="#D4AF37" strokeWidth="0.2" fill="none" />
-            <ellipse cx="50" cy="50" rx="45" ry="30" stroke="#D4AF37" strokeWidth="0.2" fill="none" />
-            <ellipse cx="50" cy="50" rx="30" ry="45" stroke="#D4AF37" strokeWidth="0.2" fill="none" />
-          </svg>
+          {/* Rotating latitude/longitude group */}
+          <g ref={gRef}>
+            <ellipse cx="120" cy="120" rx="110" ry="28" stroke="#D4AF37" strokeWidth="0.4" fill="none" opacity="0.5" />
+            <ellipse cx="120" cy="120" rx="110" ry="58" stroke="#D4AF37" strokeWidth="0.4" fill="none" opacity="0.4" />
+            <ellipse cx="120" cy="120" rx="110" ry="90" stroke="#D4AF37" strokeWidth="0.35" fill="none" opacity="0.35" />
+            <ellipse cx="120" cy="120" rx="30" ry="110" stroke="#D4AF37" strokeWidth="0.4" fill="none" opacity="0.4" />
+            <ellipse cx="120" cy="120" rx="70" ry="110" stroke="#D4AF37" strokeWidth="0.4" fill="none" opacity="0.35" />
+            {/* equator */}
+            <ellipse cx="120" cy="120" rx="110" ry="4" stroke="#D4AF37" strokeWidth="0.8" fill="none" opacity="0.7" />
+          </g>
 
-          {/* Data Arcs (Simulated) */}
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.5, 0], x: [0, 100, 200], y: [0, -50, -100] }}
-              transition={{ duration: 3, delay: i * 0.5, repeat: Infinity }}
-              className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full shadow-[0_0_10px_white]"
-              style={{ rotate: `${i * 60}deg` }}
-            />
-          ))}
+          {/* City hotspot dots (static — spread over globe face) */}
+          {cities.map((c, i) => {
+            const px = (c.x / 100) * 220 + 10;
+            const py = (c.y / 100) * 220 + 10;
+            return (
+              <g key={i}>
+                <circle cx={px} cy={py} r="4" fill={c.color} opacity="0.9">
+                  <animate attributeName="r" values="4;7;4" dur={`${2 + i * 0.3}s`} repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.9;0.3;0.9" dur={`${2 + i * 0.3}s`} repeatCount="indefinite" />
+                </circle>
+                <circle cx={px} cy={py} r="2" fill={c.color} />
+                <text x={px + 7} y={py + 4} fontSize="6" fill="#D4AF37" fontFamily="sans-serif" letterSpacing="0.05em">
+                  {c.label}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
 
-          {/* Target Indicators */}
-          <div className="absolute top-1/4 left-1/4 group cursor-help">
-            <div className="w-2 h-2 bg-luxury-gold rounded-full shadow-[0_0_15px_#D4AF37] animate-ping"></div>
-            <div className="absolute top-4 left-4 bg-black/80 border border-luxury-gold/50 p-2 rounded hidden group-hover:block whitespace-nowrap">
-              <p className="text-[8px] text-white font-bold">NEW YORK: HIGH INTEREST</p>
-            </div>
+      {/* STATS BOXES — above market ticker */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '12px',
+        marginTop: '20px',
+        width: '100%',
+        maxWidth: '720px',
+        padding: '0 24px',
+        flexShrink: 0,
+        boxSizing: 'border-box',
+      }}>
+        {[
+          { label: "Global Sentiment", value: "98.4%", color: "#D4AF37" },
+          { label: "Intl. Brands", value: "450+", color: "#fff" },
+          { label: "Visitor Origin", value: "85 Countries", color: "#fff" },
+          { label: "Pre-Booked", value: "65%", color: "#4ade80" },
+        ].map((item, i) => (
+          <div key={i} style={{
+            padding: '14px 10px',
+            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(255,255,255,0.02)',
+            textAlign: 'center',
+            borderRadius: '2px',
+          }}>
+            <p style={{ fontSize: '8px', color: '#555', textTransform: 'uppercase', letterSpacing: '0.2em', marginBottom: '6px' }}>{item.label}</p>
+            <p style={{ fontSize: '1.25rem', fontWeight: 300, color: item.color, margin: 0 }}>{item.value}</p>
           </div>
-          <div className="absolute bottom-1/3 right-1/4 group cursor-help">
-            <div className="w-2 h-2 bg-luxury-gold rounded-full shadow-[0_0_15px_#D4AF37] animate-ping"></div>
-            <div className="absolute top-4 left-4 bg-black/80 border border-luxury-gold/50 p-2 rounded hidden group-hover:block whitespace-nowrap">
-              <p className="text-[8px] text-white font-bold">LONDON: BRAND DEMAND</p>
-            </div>
-          </div>
-        </motion.div>
+        ))}
       </div>
 
-      <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-5xl w-full px-12">
-        <div className="p-6 bg-white/5 border border-white/10 text-center">
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Global Sentiment</p>
-          <p className="text-2xl text-luxury-gold font-light">98.4%</p>
-        </div>
-        <div className="p-6 bg-white/5 border border-white/10 text-center">
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Intl. Brands</p>
-          <p className="text-2xl text-white font-light">450+</p>
-        </div>
-        <div className="p-6 bg-white/5 border border-white/10 text-center">
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Visitor Origin</p>
-          <p className="text-2xl text-white font-light">85 Countries</p>
-        </div>
-        <div className="p-6 bg-white/5 border border-white/10 text-center">
-          <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Pre-Booked</p>
-          <p className="text-2xl text-green-400 font-light">65%</p>
-        </div>
-      </div>
-
-      <button 
+      {/* Return button */}
+      <button
         onClick={() => setCurrentView('dashboard')}
-        className="mt-12 text-luxury-gold uppercase text-[10px] tracking-[0.5em] font-bold border-b border-luxury-gold pb-2 hover:text-white hover:border-white transition-all"
+        style={{
+          marginTop: '16px',
+          background: 'none',
+          border: 'none',
+          color: '#D4AF37',
+          fontSize: '9px',
+          textTransform: 'uppercase',
+          letterSpacing: '0.4em',
+          cursor: 'pointer',
+          borderBottom: '1px solid rgba(212,175,55,0.2)',
+          paddingBottom: '3px',
+          flexShrink: 0,
+        }}
       >
         Return to Intelligence Hub
       </button>
