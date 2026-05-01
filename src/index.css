@@ -13,14 +13,34 @@
   body {
     @apply bg-luxury-dark text-white font-sans antialiased;
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
   }
 }
 
 /* Hide scrollbar for the main snap container */
 .snap-y {
   -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  scrollbar-width: none;
+}
+
+@media print {
+  .no-print, nav, button, .atmosphere, .cursor-nebula {
+    display: none !important;
+  }
+  body, #root {
+    background: white !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
 .snap-y::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
@@ -29,4 +49,12 @@
 /* Ensure sections snap fully */
 section {
   scroll-snap-stop: always;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

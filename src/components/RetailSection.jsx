@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import contentData from '../data/content.json';
-import InquiryModal from './InquiryModal';
+import React from 'react';
 
-const RetailSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const RetailSection = ({ setModalOpen }) => {
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-[#020202] relative overflow-hidden">
@@ -72,11 +68,7 @@ const RetailSection = () => {
         </div>
       </div>
 
-      <InquiryModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        contextTitle="Retail Leasing"
-      />
+
     </div>
   );
 };

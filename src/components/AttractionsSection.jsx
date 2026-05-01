@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import contentData from '../data/content.json';
-import InquiryModal from './InquiryModal';
-import AttractionModal from './AttractionModal';
 
-const AttractionsSection = () => {
-  const [isInquiryOpen, setIsInquiryOpen] = useState(false);
-  const [selectedAttraction, setSelectedAttraction] = useState(null);
+const AttractionsSection = ({ setModalOpen }) => {
 
   const openAttraction = (item) => {
     setSelectedAttraction(item);
@@ -69,7 +65,7 @@ const AttractionsSection = () => {
             Drawing global audiences that pure retail simply cannot match. A platform for brand immersion.
           </p>
           <button 
-            onClick={() => setIsInquiryOpen(true)}
+            onClick={() => setModalOpen(true)}
             className="px-8 py-3 bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.2em] text-white hover:border-luxury-gold transition-all duration-300"
           >
             Leasing Inquiries
@@ -77,17 +73,7 @@ const AttractionsSection = () => {
         </motion.div>
       </div>
 
-      <InquiryModal 
-        isOpen={isInquiryOpen} 
-        onClose={() => setIsInquiryOpen(false)} 
-        contextTitle="Attraction Partnership"
-      />
 
-      <AttractionModal 
-        isOpen={!!selectedAttraction}
-        onClose={() => setSelectedAttraction(null)}
-        attraction={selectedAttraction}
-      />
     </div>
   );
 };
